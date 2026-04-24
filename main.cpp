@@ -1,4 +1,5 @@
 #include <Novice.h>
+#include <cmath>
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
 
