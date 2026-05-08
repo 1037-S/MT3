@@ -29,6 +29,9 @@
     <Filter Include="MT3\00_03">
       <UniqueIdentifier>{029a4694-21d5-40d5-93ec-484b9d141584}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MT3\00_04">
+      <UniqueIdentifier>{f6adaccd-7b5e-4f7b-a139-5ea6597a6809}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp">
@@ -45,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="MakeMatrix.cpp">
       <Filter>MT3\00_03</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotate.cpp">
+      <Filter>MT3\00_04</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +146,9 @@
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotate.h">
+      <Filter>MT3\00_04</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

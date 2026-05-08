@@ -1,19 +1,16 @@
+#include "Rotate.h"
 #include <Novice.h>
-#include "MakeMatrix.h"
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
 
-	// Windowsアプリでのエントリーポイント(main関数)
+// Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
-	//Matrix4 matrix4;
-	//matrix4.Initialize();
-
-	MakeMatrix make;
-	make.Initialize();
+	Rotate rotate;
+	rotate.Initialize();
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -32,8 +29,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		//matrix4.Update();
-		make.Update();
+		rotate.Update();
 
 		///
 		/// ↑更新処理ここまで
@@ -43,8 +39,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		//matrix4.Draw();
-		make.Draw();
+		rotate.Draw();
 
 		///
 		/// ↑描画処理ここまで
