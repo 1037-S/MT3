@@ -1,5 +1,5 @@
 #include <Novice.h>
-#include "Matrix4.h"
+#include "MakeMatrix.h"
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
 
@@ -9,8 +9,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
-	Matrix4 matrix4;
-	matrix4.Initialize();
+	//Matrix4 matrix4;
+	//matrix4.Initialize();
+
+	MakeMatrix make;
+	make.Initialize();
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -29,7 +32,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		matrix4.Update();
+		//matrix4.Update();
+		make.Update();
 
 		///
 		/// ↑更新処理ここまで
@@ -39,7 +43,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		matrix4.Draw();
+		//matrix4.Draw();
+		make.Draw();
 
 		///
 		/// ↑描画処理ここまで

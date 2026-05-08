@@ -14,11 +14,20 @@
     <Filter Include="KamataEngine\Adapter">
       <UniqueIdentifier>{c6468eb4-788b-4a83-b207-a5f4804e56c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダーファイル">
-      <UniqueIdentifier>{23fb5c96-0d92-4a26-a3eb-af7f36a5fef7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソースファイル">
       <UniqueIdentifier>{d15bae77-780d-463d-a725-e52fdb0dc38c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MT3">
+      <UniqueIdentifier>{ceee13d1-9c38-4f1f-ad0b-7ec5ee604f24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MT3\00_01">
+      <UniqueIdentifier>{423cf975-230d-4f55-84a6-f441efdcb84b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MT3\00_02">
+      <UniqueIdentifier>{bd5b67b2-ccb2-4e4d-91ce-af9b74a98e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MT3\00_03">
+      <UniqueIdentifier>{029a4694-21d5-40d5-93ec-484b9d141584}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,11 +37,14 @@
     <ClCompile Include="main.cpp">
       <Filter>ソースファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix4.cpp">
-      <Filter>ソースファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Vector3Mas.cpp">
-      <Filter>ソースファイル</Filter>
+      <Filter>MT3\00_01</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4.cpp">
+      <Filter>MT3\00_02</Filter>
+    </ClCompile>
+    <ClCompile Include="MakeMatrix.cpp">
+      <Filter>MT3\00_03</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,10 +130,16 @@
       <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="Vector3Mas.h">
-      <Filter>ヘッダーファイル</Filter>
+      <Filter>MT3\00_01</Filter>
     </ClInclude>
     <ClInclude Include="Matrix4.h">
-      <Filter>ヘッダーファイル</Filter>
+      <Filter>MT3\00_02</Filter>
+    </ClInclude>
+    <ClInclude Include="MakeMatrix.h">
+      <Filter>MT3\00_03</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>ソースファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

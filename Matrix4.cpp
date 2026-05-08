@@ -199,6 +199,7 @@ void Matrix4::MatrixScreenPrintf(int x, int y,
 	}
 }
 
+
 void Matrix4::Initialize() {
 
 	m1_ = {	3.2f, 0.7f, 9.6f, 4.4f,

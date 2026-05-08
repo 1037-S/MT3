@@ -1,14 +1,7 @@
 #pragma once
+#include<assert.h>
+#include"Object.h"
 
-
-struct Vector3 {
-	float x;
-	float y;
-	float z;
-};
-
-static const int kColumnWidth = 60;
-static const int kRowHeight = 20;
 
 
 class Vector3Mas {

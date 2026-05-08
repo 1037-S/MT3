@@ -1,12 +1,7 @@
 #pragma once
+#include "Object.h"
 
 
-struct Matrix4x4 {
-	float m[4][4];
-};
-
-static const int kColumnWidth = 60;
-static const int kRowHeight = 20;
 
 class Matrix4 {
 public:
@@ -26,8 +21,11 @@ public:
 	// 6.単位行列の作成
 	Matrix4x4 MakeIdentity4x4();
 
-	void MatrixScreenPrintf(int x, int y, const Matrix4x4& matrix, const char* label);
 
+
+	void MatrixScreenPrintf(int x, int y, const Matrix4x4& matrix, const char* label);
+	
+	
 	void Initialize();
 
 	void Update();
