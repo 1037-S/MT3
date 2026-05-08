@@ -74,8 +74,7 @@
       <AdditionalDependencies>KamataEngine.lib;DirectXTex.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy C:\KamataEngine\DirectXGame\Resources .\NoviceResources /S /E /I /D /R /Y
-xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /S /E /I /D /R /Y</Command>
+      <Command>xcopy "C:\Users\K025G\Desktop\2026first\MT3\MT3\KamataEngine\Novice\Resources" "C:\Users\K025G\Desktop\2026first\MT3\MT3\KamataEngine\Generated\Outputs\Debug\NoviceResources" /S /E /I /D /R /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -110,6 +109,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="Vector3Mas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DirectXGame\3d\Camera.h" />
@@ -139,6 +140,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="C:\KamataEngine\DirectXGame\input\Input.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\scene\GameScene.h" />
     <ClInclude Include="C:\KamataEngine\Adapter\Novice.h" />
+    <ClInclude Include="Matrix4.h" />
+    <ClInclude Include="Vector3Mas.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
