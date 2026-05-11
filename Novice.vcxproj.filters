@@ -32,6 +32,9 @@
     <Filter Include="MT3\00_04">
       <UniqueIdentifier>{f6adaccd-7b5e-4f7b-a139-5ea6597a6809}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MT3\00_05">
+      <UniqueIdentifier>{b5422fe0-1722-4b17-ab17-b147a32f36d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp">
@@ -51,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="Rotate.cpp">
       <Filter>MT3\00_04</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldM4.cpp">
+      <Filter>MT3\00_05</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +155,9 @@
     </ClInclude>
     <ClInclude Include="Rotate.h">
       <Filter>MT3\00_04</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldM4.h">
+      <Filter>MT3\00_05</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

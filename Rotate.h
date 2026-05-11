@@ -26,6 +26,9 @@ public:
 
 	void Draw();
 
+	void SetRotate(const Vector3& rotate) { rotate_ = rotate; }
+	const Matrix4x4& GetRotateXYZMatrix() const { return rotateXYZMatrix_; }
+
 private:
 	Matrix4 m4_;
 
@@ -36,4 +39,3 @@ private:
 	Matrix4x4 rotateMatrixZ_;
 	Matrix4x4 rotateXYZMatrix_;
 };
-

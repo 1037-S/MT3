@@ -1,5 +1,5 @@
-#include "Rotate.h"
 #include <Novice.h>
+#include "WorldM4.h"
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
 
@@ -9,8 +9,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
-	Rotate rotate;
-	rotate.Initialize();
+	WorldM4 worldM4;
+	worldM4.Initialize();
+	
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -29,7 +30,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		rotate.Update();
+		worldM4.Update();
 
 		///
 		/// ↑更新処理ここまで
@@ -39,7 +40,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		rotate.Draw();
+		worldM4.Draw();
 
 		///
 		/// ↑描画処理ここまで
