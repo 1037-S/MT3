@@ -1,5 +1,6 @@
 #include <Novice.h>
-#include "WorldM4.h"
+#include "RringPlineVer2.h"
+
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
 
@@ -9,9 +10,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
-	WorldM4 worldM4;
-	worldM4.Initialize();
-	
+	RringPlineVer2 RPV2;
+	RPV2.Initialize();
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -30,7 +30,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		worldM4.Update();
+		
 
 		///
 		/// ↑更新処理ここまで
@@ -40,7 +40,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		worldM4.Draw();
+		RPV2.Draw();
 
 		///
 		/// ↑描画処理ここまで

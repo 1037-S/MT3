@@ -71,6 +71,7 @@ Vector3 Vector3Mas::Normalize(const Vector3& v) {
 
 
 void Vector3Mas::VectorScreenPrintf(int x, int y, const Vector3& vector, const char* label) {
+	Novice::ScreenPrintf(x, y - 20, "%s", label);
 	Novice::ScreenPrintf(x, y, "%.02f", vector.x);
 	Novice::ScreenPrintf(x + kColumnWidth, y, "%.02f", vector.y);
 	Novice::ScreenPrintf(x + kColumnWidth * 2, y, "%.02f", vector.z);
@@ -93,10 +94,10 @@ void Vector3Mas::Update() {
 }
 
 void Vector3Mas::Draw() {
-	VectorScreenPrintf(0, 0, resultAdd_, " : Add");
-	VectorScreenPrintf(0, kRowHeight, resultSubtract_, ": Subtract");
-	VectorScreenPrintf(0, kRowHeight * 2, resultMultiply_, ": Multiply");
-	Novice::ScreenPrintf(0, kRowHeight * 3, "%.02f : Dot", resultDot_);
-	Novice::ScreenPrintf(0, kRowHeight * 4, "%.02f : Length", resultLength_);
-	VectorScreenPrintf(0, kRowHeight * 5, resultNormalize_, ": Normalize");
+	//VectorScreenPrintf(0, 0, resultAdd_, " : Add");
+	//VectorScreenPrintf(0, kRowHeight, resultSubtract_, ": Subtract");
+	//VectorScreenPrintf(0, kRowHeight * 2, resultMultiply_, ": Multiply");
+	//Novice::ScreenPrintf(0, kRowHeight * 3, "%.02f : Dot", resultDot_);
+	//Novice::ScreenPrintf(0, kRowHeight * 4, "%.02f : Length", resultLength_);
+	//VectorScreenPrintf(0, kRowHeight * 5, resultNormalize_, ": Normalize");
 }

@@ -1,4 +1,5 @@
 #include "Rotate.h"
+#include <Novice.h>
 
 Rotate::~Rotate() {}
 // 1.X軸回転行列
@@ -52,12 +53,8 @@ void Rotate::Update() {
 }
 
 void Rotate::Draw() {
-	Novice::ScreenPrintf(0, 0, "rotateMatrixX");
 	m4_.MatrixScreenPrintf(0, 20, rotateMatrixX_, "rotateMatrixX");
-	Novice::ScreenPrintf(0, kRowHeight * 5, "rotateMatrixY");
 	m4_.MatrixScreenPrintf(0, 20 + kRowHeight * 5, rotateMatrixY_, "rotateMatrixY");
-	Novice::ScreenPrintf(0, kRowHeight * 5 * 2, "rotateMatrixZ");
 	m4_.MatrixScreenPrintf(0, 20 + kRowHeight * 5 * 2, rotateMatrixZ_, "rotateMatrixZ");
-	Novice::ScreenPrintf(0, kRowHeight * 5 * 3, "rotateXYZMatrix");
 	m4_.MatrixScreenPrintf(0, 20 + kRowHeight * 5 * 3, rotateXYZMatrix_, "rotateXYZMatrix");
 }

@@ -1,10 +1,11 @@
 #pragma once
 #include "Matrix4.h"
 #include "Vector3Mas.h"
-#include <Novice.h>
+//#include <Novice.h>
 
 class MakeMatrix {
 public:
+	
 	// 1.平行移動行列
 	Matrix4x4 MakeTransLateMatrix(const Vector3& transLate);
 

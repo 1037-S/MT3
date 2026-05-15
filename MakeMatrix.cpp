@@ -1,4 +1,5 @@
 #include "MakeMatrix.h"
+#include <Novice.h>
 
 // 1.平行移動行列
 Matrix4x4 MakeMatrix::MakeTransLateMatrix(const Vector3& transLate) { 
@@ -71,8 +72,6 @@ void MakeMatrix::Update() {
 
 void MakeMatrix::Draw() { 
 		mas.VectorScreenPrintf(0, 0, transformed_, "transformed");
-	Novice::ScreenPrintf(0, 20, "translateMatrix");
 	m4.MatrixScreenPrintf(0, 40, translateMatrix_, "translateMatrix");
-	Novice::ScreenPrintf(0, 20+ kRowHeight*5, "scaleMatrix");
 	m4.MatrixScreenPrintf(0, 40 + kRowHeight*5, scaleMatrix_, "scaleMatrix");
 }

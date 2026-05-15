@@ -3,7 +3,6 @@
 //#include "Vector3Mas.h"
 #include "Object.h"
 #include"MakeMatrix.h"
-#include <Novice.h>
 #include <cmath>
 
 class Rotate{
