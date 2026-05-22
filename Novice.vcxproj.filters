@@ -38,6 +38,9 @@
     <Filter Include="MT3\01_00">
       <UniqueIdentifier>{e6d50605-13d1-437a-bdf8-afa064cab290}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MT3\01_01">
+      <UniqueIdentifier>{438a54f8-bd8b-4eb6-ba73-8cb2d5fe9686}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp">
@@ -63,6 +66,9 @@
     </ClCompile>
     <ClCompile Include="RringPlineVer2.cpp">
       <Filter>MT3\01_00</Filter>
+    </ClCompile>
+    <ClCompile Include="POLYGON.cpp">
+      <Filter>MT3\01_01</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +173,9 @@
     </ClInclude>
     <ClInclude Include="RringPlineVer2.h">
       <Filter>MT3\01_00</Filter>
+    </ClInclude>
+    <ClInclude Include="POLYGON.h">
+      <Filter>MT3\01_01</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

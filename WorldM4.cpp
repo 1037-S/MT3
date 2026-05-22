@@ -1,6 +1,5 @@
 #include "WorldM4.h"
 
-
 WorldM4::~WorldM4() {}
 
 // アフィン変換行列

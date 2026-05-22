@@ -74,7 +74,7 @@
       <AdditionalDependencies>KamataEngine.lib;DirectXTex.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "C:\Users\K025G\Desktop\2026first\MT3\MT3\KamataEngine\Novice\Resources" "C:\Users\K025G\Desktop\2026first\MT3\MT3\KamataEngine\Generated\Outputs\Debug\NoviceResources" /S /E /I /D /R /Y</Command>
+      <Command>xcopy "$(ProjectDir)Resources" "$(ProjectDir)..\Generated\Outputs\$(Configuration)\$(ProjectName)Resources" /S /E /I /D /R /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -111,6 +111,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MakeMatrix.cpp" />
     <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="POLYGON.cpp" />
     <ClCompile Include="Rotate.cpp" />
     <ClCompile Include="RringPlineVer2.cpp" />
     <ClCompile Include="Vector3Mas.cpp" />
@@ -147,6 +148,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="MakeMatrix.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="POLYGON.h" />
     <ClInclude Include="Rotate.h" />
     <ClInclude Include="RringPlineVer2.h" />
     <ClInclude Include="Vector3Mas.h" />
