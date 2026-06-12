@@ -17,6 +17,8 @@ public:
 	void Update(char* keys);
 	void Draw();
 
+	//void WorldViewPortMatrix();
+
 private:
 	Vector3Mas V3mas_;
 	Matrix4 m4_;

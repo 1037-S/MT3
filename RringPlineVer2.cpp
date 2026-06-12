@@ -64,3 +64,31 @@ void RringPlineVer2::Draw() {
 	m4_.MatrixScreenPrintf(0, 20 + kRowHeight * 5, perspectiveFovMatrix_, "perspectiveFovMatrix");
 	m4_.MatrixScreenPrintf(0, 20 + kRowHeight * 10, viewportMatrix_, "viewportMatrix");
 }
+
+void RringPlineVer2::WorldViewPortMatrix(Matrix4x4& cameraMatrix, Matrix4x4& worldMatrix, Matrix4x4& viewMatrix, Matrix4x4& projectionMatrix) {
+
+	const Vector3 CameraPos = {0.0f, 0.0f, -10.0f};
+	Vector3 rotate{};
+	Vector3 translate{};
+	Vector3 screenVertices[3];
+	const Vector3 kLocalVertices[3] = {
+	    {0.0f,  1.0f,  0.0f},
+	    {1.0f,  -1.0f, 0.0f},
+	    {-1.0f, -1.0f, 0.0f},
+	};
+
+	// 各種行列の計算
+	cameraMatrix = wm4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 0.0f}, CameraPos);
+	worldMatrix = wm4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, rotate, translate);
+	viewMatrix = m4_.Inverse(cameraMatrix);
+	projectionMatrix= MakePerspectiveFovMatrix(0.45f, float(KWindowWidth) / float(KWindowHeight), 0.1f, 100.0f);
+
+	//  WorldViewProjectionMatrix、略してWVPMatrixを作る
+	Matrix4x4 wvpMatrix = m4_.Multiply(worldMatrix, m4_.Multiply(viewMatrix, projectionMatrix));
+	Matrix4x4 vpMatrix = MakeViewportMatrix(0, 0, float(KWindowWidth), float(KWindowHeight), 0.0f, 1.0f);
+
+		for (uint32_t i = 0; i < 3; ++i) {
+		Vector3 ndcVertex = makeMatrix_.Transform(kLocalVertices[i], wvpMatrix);
+		screenVertices[i] = makeMatrix_.Transform(ndcVertex, vpMatrix);
+	}
+}

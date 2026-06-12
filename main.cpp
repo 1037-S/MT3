@@ -1,6 +1,6 @@
 #include <Novice.h>
 #include "Object.h"
-#include "POLYGON.h"
+#include "GRID.h"
 
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
@@ -11,8 +11,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, KWindowWidth, KWindowHeight);
 
-	POLYGON *polygon= new POLYGON;
-	polygon->Initialize();
+	GRID *grid= new GRID;
+	grid->Initialize();
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -31,7 +31,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		polygon->Update(keys);
+		grid->Update();
 
 		///
 		/// ↑更新処理ここまで
@@ -41,7 +41,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		polygon->Draw();
+		grid->Draw();
 
 		///
 		/// ↑描画処理ここまで

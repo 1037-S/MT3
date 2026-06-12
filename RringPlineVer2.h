@@ -1,6 +1,8 @@
 #pragma once
 #include "Object.h"
 #include "Matrix4.h"
+#include "WorldM4.h"
+#include "MakeMatrix.h"
 #include <cmath>
 
 class RringPlineVer2 {
@@ -29,11 +31,15 @@ public:
 
 	void Draw();
 
+	void WorldViewPortMatrix(Matrix4x4& cameraMatrix, Matrix4x4& worldMatrix, Matrix4x4& viewMatrix, Matrix4x4& projectionMatrix);
+
 private:
 	Matrix4x4 orthographicMatrix_;
 	Matrix4x4 perspectiveFovMatrix_;
 	Matrix4x4 viewportMatrix_;
 
+	WorldM4 wm4_;
 	Matrix4 m4_;
+	MakeMatrix makeMatrix_;
 };
 

@@ -1,7 +1,8 @@
 #include "POLYGON.h"
 #include <Novice.h>
 
-POLYGON::~POLYGON() { }
+POLYGON::~POLYGON() {}
+
 
 // クロス積(外積)(ベクトル積とも呼ばれる)
 Vector3 POLYGON::Closs(const Vector3& v1, const Vector3& v2) { 
@@ -35,12 +36,13 @@ void POLYGON::Update(char* keys) {
 		translate.x += 0.1f;
 	}
 	// 各種行列の計算
-	cameraMatrix_ = worldM4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 0.0f},CameraPos_);
-	worldMatrix_ =	worldM4_.MakeAffineMatrix({1.0f,1.0f,1.0f},rotate,translate);
-	viewMatrix_ =	m4_.Inverse(cameraMatrix_);
-	projectionMatrix_ = rpv2_.MakePerspectiveFovMatrix(0.45f,float(KWindowWidth)/float(KWindowHeight),0.1f,100.0f);
+	rpv2_.WorldViewPortMatrix(cameraMatrix_,worldMatrix_,viewMatrix_,projectionMatrix_);
+	cameraMatrix_ = worldM4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 0.0f}, CameraPos_);
+	worldMatrix_ = worldM4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, rotate, translate);
+	viewMatrix_ = m4_.Inverse(cameraMatrix_);
+	projectionMatrix_ = rpv2_.MakePerspectiveFovMatrix(0.45f, float(KWindowWidth) / float(KWindowHeight), 0.1f, 100.0f);
 	//  WorldViewProjectionMatrix、略してWVPMatrixを作る
-	wvpMatrix_ = m4_.Multiply(worldMatrix_,m4_.Multiply(viewMatrix_,projectionMatrix_));
+	wvpMatrix_ = m4_.Multiply(worldMatrix_, m4_.Multiply(viewMatrix_, projectionMatrix_));
 	vpMatrix_ = rpv2_.MakeViewportMatrix(0, 0, float(KWindowWidth), float(KWindowHeight), 0.0f, 1.0f);
 	for (uint32_t i = 0; i < 3; ++i) {
 		Vector3 ndcVertex = makeMatrix_.Transform(kLocalVertices_[i], wvpMatrix_);
