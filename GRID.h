@@ -13,6 +13,8 @@ struct Sphere {
 };
 
 class GRID {
+
+
 public:
 
 	~GRID();
@@ -43,8 +45,6 @@ private:
 	//  WorldViewProjectionMatrix、略してWVPMatrixを作る
 	Matrix4x4 viewProjectionMatrix_;
 	Matrix4x4 viewPortMatrix_ ;
-	;
-	WorldM4 WM4_;
 	Vector3 cameraTranslate_{0.0f,1.9f,-6.49f};
 	Vector3 cameraRotate_{0.26f,0.0f,0.0f};
 	Sphere sphere_;

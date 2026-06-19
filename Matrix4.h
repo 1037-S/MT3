@@ -21,8 +21,6 @@ public:
 	// 6.単位行列の作成
 	Matrix4x4 MakeIdentity4x4();
 
-
-
 	void MatrixScreenPrintf(int x, int y, const Matrix4x4& matrix, const char* label);
 	
 	

@@ -1,6 +1,7 @@
 #include <Novice.h>
 #include "Object.h"
 #include "GRID.h"
+#include "Vectol.h"
 
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
@@ -12,7 +13,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Novice::Initialize(kWindowTitle, KWindowWidth, KWindowHeight);
 
 	GRID *grid= new GRID;
+	Vectol* vectol = new Vectol;
 	grid->Initialize();
+	vectol->Initialize();
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -32,6 +35,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		grid->Update();
+		vectol->Update();
 
 		///
 		/// ↑更新処理ここまで
@@ -42,6 +46,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		grid->Draw();
+		vectol->Draw();
 
 		///
 		/// ↑描画処理ここまで

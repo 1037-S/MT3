@@ -53,6 +53,9 @@
     <Filter Include="MT3\02">
       <UniqueIdentifier>{01905fb4-2903-403f-9375-e54a45ee6daa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MT3\02\02_00">
+      <UniqueIdentifier>{de3dc12c-7b62-4f71-b7a8-77915474f614}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp">
@@ -84,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="GRID.cpp">
       <Filter>MT3\01\01_02</Filter>
+    </ClCompile>
+    <ClCompile Include="Vectol.cpp">
+      <Filter>MT3\02\02_00</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +200,9 @@
     </ClInclude>
     <ClInclude Include="GRID.h">
       <Filter>MT3\01\01_02</Filter>
+    </ClInclude>
+    <ClInclude Include="Vectol.h">
+      <Filter>MT3\02\02_00</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
