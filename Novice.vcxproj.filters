@@ -56,6 +56,9 @@
     <Filter Include="MT3\02\02_00">
       <UniqueIdentifier>{de3dc12c-7b62-4f71-b7a8-77915474f614}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MT3\02\02_01">
+      <UniqueIdentifier>{fce699a2-8239-4aba-a943-df6ab81af98b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp">
@@ -90,6 +93,9 @@
     </ClCompile>
     <ClCompile Include="Vectol.cpp">
       <Filter>MT3\02\02_00</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereSecond.cpp">
+      <Filter>MT3\02\02_01</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="Vectol.h">
       <Filter>MT3\02\02_00</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereSecond.h">
+      <Filter>MT3\02\02_01</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

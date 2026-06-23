@@ -1,32 +1,25 @@
 #pragma once
-#include "Object.h"
+#include "GRID.h"
 #include "Matrix4.h"
 #include "RringPlineVer2.h"
 #include "Rotate.h"
 #include "POLYGON.h"
 #include "MakeMatrix.h"
-#include <cmath>
-
-struct Sphere {
-	Vector3 center; //!< 球の中心点
-	float radius;	//!< 球の半径
-};
-
-class GRID {
+#include "Object.h"
 
 
+class SphereSecond{
 public:
-
-	~GRID();
 	
-	// グリッド
-	void DrawGrid(const Matrix4x4& viewProjectMatrix, const Matrix4x4& viewportMatrix);
+	bool IsCollsion(const Sphere& s1, const Sphere& s2);
 	// 球体
-	void DrawSphere(const Sphere& sphere, const Matrix4x4& viewProjectMatrix, const Matrix4x4& viewportMatrix,uint32_t color);
+	void DrawSphere(const Sphere& sphere, const Matrix4x4& viewProjectMatrix, const Matrix4x4& viewportMatrix, uint32_t color);
+
 
 	void Initialize();
 	void Update(char* keys);
 	void Draw();
+
 
 private:
 	Matrix4 m4_;
@@ -39,14 +32,21 @@ private:
 	Vector3 rotate{};
 	Vector3 translate{};
 	Matrix4x4 cameraMatrix_;
-	Matrix4x4 worldMatrix_ ;
+	Matrix4x4 worldMatrix_;
 	Matrix4x4 viewMatrix_;
-	Matrix4x4 projectionMatrix_ ;
+	Matrix4x4 projectionMatrix_;
 	//  WorldViewProjectionMatrix、略してWVPMatrixを作る
 	Matrix4x4 viewProjectionMatrix_;
-	Matrix4x4 viewPortMatrix_ ;
-	Vector3 cameraTranslate_{0.0f,1.9f,-6.49f};
-	Vector3 cameraRotate_{0.26f,0.0f,0.0f};
-	Sphere sphere_;
+	Matrix4x4 viewPortMatrix_;
+	Vector3 cameraTranslate_{0.0f, 1.9f, -6.49f};
+	Vector3 cameraRotate_{0.26f, 0.0f, 0.0f};
+	GRID Sphere_;
+	Sphere sphere0_;
+	Sphere sphere1_;
+	float distance_;
+	bool isCollision_;
 	float phi_;
+
 };
+
+

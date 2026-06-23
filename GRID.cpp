@@ -101,11 +101,52 @@ void GRID::Initialize() {
 
 	sphere_.center = {0.0f,0.0f,0.0f};
 	sphere_.radius = 1.0f;
+	
 }
 
-void GRID::Update() {
+void GRID::Update(char* keys) {
 
 
+#ifdef _DEBUG
+	float cameraSpeed = 0.05f;
+	if (keys[DIK_E]) {
+		cameraTranslate_.z += cameraSpeed;
+	}
+	if (keys[DIK_Q]) {
+		cameraTranslate_.z -= cameraSpeed;
+	}
+	if (keys[DIK_A]) {
+		cameraTranslate_.x += cameraSpeed;
+	}
+	if (keys[DIK_D]) {
+		cameraTranslate_.x -= cameraSpeed;
+	}
+	if (keys[DIK_W]) {
+		cameraTranslate_.y -= cameraSpeed;
+	}
+	if (keys[DIK_S]) {
+		cameraTranslate_.y += cameraSpeed;
+	}
+	if (keys[DIK_UP]) {
+		cameraRotate_.x += cameraSpeed / 5;
+	}
+	if (keys[DIK_DOWN]) {
+		cameraRotate_.x -= cameraSpeed / 5;
+	}
+	if (keys[DIK_LEFT]) {
+		cameraRotate_.y += cameraSpeed / 5;
+	}
+	if (keys[DIK_RIGHT]) {
+		cameraRotate_.y -= cameraSpeed / 5;
+	}
+	
+	//ImGui::Begin("Window");
+	//ImGui::DragFloat3("CameraTranslate", &cameraTranslate_.x, 0.01f);
+	//ImGui::DragFloat3("CameraRotate", &cameraRotate_.x, 0.01f);
+	//ImGui::DragFloat3("SphereCenter", &sphere_.center.x, 0.01f);
+	//ImGui::DragFloat("SphereRadius", &sphere_.radius, 0.01f);
+	//ImGui::End();
+#endif // _DEBUG
 	// 各種行列の計算
 	RPV2_.WorldViewPortMatrix(cameraMatrix_, worldMatrix_, viewMatrix_, projectionMatrix_);
 	cameraMatrix_ = wm4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, cameraRotate_, cameraTranslate_);
@@ -115,17 +156,9 @@ void GRID::Update() {
 	//  ViewProjectionMatrixを作る
 	viewProjectionMatrix_ = m4_.Multiply(viewMatrix_, projectionMatrix_);
 	viewPortMatrix_ = RPV2_.MakeViewportMatrix(0, 0, float(KWindowWidth), float(KWindowHeight), 0.0f, 1.0f);
-#ifdef _DEBUG
-	ImGui::Begin("Window");
-	ImGui::DragFloat3("CameraTranslate", &cameraTranslate_.x, 0.01f);
-	ImGui::DragFloat3("CameraRotate", &cameraRotate_.x, 0.01f);
-	ImGui::DragFloat3("SphereCenter", &sphere_.center.x, 0.01f);
-	ImGui::DragFloat("SphereRadius", &sphere_.radius, 0.01f);
-	ImGui::End();
-#endif // _DEBUG
 }
 
 void GRID::Draw() {
 	GRID::DrawGrid(viewProjectionMatrix_,viewPortMatrix_);
-	GRID::DrawSphere(sphere_,viewProjectionMatrix_,viewPortMatrix_,BLACK);
+	//GRID::DrawSphere(sphere_,viewProjectionMatrix_,viewPortMatrix_,BLACK);
 }

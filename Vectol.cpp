@@ -48,13 +48,7 @@ void Vectol::Initialize() {
     };
 	point_ = {-1.5f, 0.6f, 0.6f};
 
-	cameraMatrix_ = wm4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, cameraRotate_, cameraTranslate_);
-	worldMatrix_ = wm4_.MakeAffineMatrix({1.0f, 1.0f, 1.0f}, rotate, translate);
-	viewMatrix_ = m4_.Inverse(cameraMatrix_);
-	projectionMatrix_ = RPV2_.MakePerspectiveFovMatrix(0.45f, float(KWindowWidth) / float(KWindowHeight), 0.1f, 100.0f);
-	viewProjectionMatrix_ = m4_.Multiply(viewMatrix_, projectionMatrix_);
-	viewPortMatrix_ = RPV2_.MakeViewportMatrix(0, 0, float(KWindowWidth), float(KWindowHeight), 0.0f, 1.0f);
-	
+	Sphere_.Initialize();
 
 	project_ = project(V3mas_.Subtract(point_, segment_.origin), segment_.diff);
 
