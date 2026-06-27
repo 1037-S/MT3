@@ -7,7 +7,8 @@
 #include "MakeMatrix.h"
 #include <cmath>
 
-struct Sphere {
+struct Sphere // 球
+{
 	Vector3 center; //!< 球の中心点
 	float radius;	//!< 球の半径
 };
@@ -25,8 +26,8 @@ public:
 	void DrawSphere(const Sphere& sphere, const Matrix4x4& viewProjectMatrix, const Matrix4x4& viewportMatrix,uint32_t color);
 
 	void Initialize();
-	void Update(char* keys);
-	void Draw();
+	void Update();
+	void Draw(const Matrix4x4& viewProjectionMatrix, const Matrix4x4& viewPortMatrix);
 
 private:
 	Matrix4 m4_;

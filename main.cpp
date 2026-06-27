@@ -1,7 +1,6 @@
 #include <Novice.h>
-#include "Object.h"
-#include "GRID.h"
-#include "SphereSecond.h"
+#include "GameScene.h"
+
 
 
 const char kWindowTitle[] = "LC2D_04_イトイ_シュウト";
@@ -12,10 +11,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, KWindowWidth, KWindowHeight);
 
-	GRID *grid= new GRID;
-	SphereSecond* sphere = new SphereSecond;
-	grid->Initialize();
-	sphere->Initialize();
+	//GRID *grid= new GRID;
+	GameScene* gameScene = new GameScene();
+	gameScene->Initialize();
 
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
@@ -34,8 +32,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		grid->Update(keys);
-		sphere->Update(keys);
+		gameScene->Update(keys);
 	
 		///
 		/// ↑更新処理ここまで
@@ -45,8 +42,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		grid->Draw();
-		sphere->Draw();
+		gameScene->Draw();
 		
 		///
 		/// ↑描画処理ここまで

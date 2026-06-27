@@ -1,36 +1,40 @@
 #pragma once
-#include "GRID.h"
+#include "Object.h"
 #include "Matrix4.h"
 #include "RringPlineVer2.h"
 #include "Rotate.h"
-#include "POLYGON.h"
+//#include "POLYGON.h"
+#include "GRID.h"
 #include "MakeMatrix.h"
-#include "Object.h"
+#include <cmath>
+#ifdef _DEBUG
+#include <imgui.h>
+#endif // _DEBUG
+#include "PlaneSphere.h"
 
 
-class SphereSecond{
+class GameScene {
 public:
 	
-
-	bool IsCollsion(const Sphere& s1, const Sphere& s2);
-	// グリッド
-	void DrawGrid(const Matrix4x4& viewProjectMatrix, const Matrix4x4& viewportMatrix);
-	// 球体
-	void DrawSphere(const Sphere& sphere, const Matrix4x4& viewProjectMatrix, const Matrix4x4& viewportMatrix, uint32_t color);
-
+	~GameScene();
 
 	void Initialize();
 	void Update(char* keys);
 	void Draw();
 
-
 private:
+
 	Matrix4 m4_;
 	MakeMatrix MM_;
 	WorldM4 wm4_;
-	POLYGON polygon_;
+	GRID grid_;
+	//POLYGON polygon_;
 	Rotate rtt_;
 	RringPlineVer2 RPV2_;
+
+	PlaneSphere planeSphere_;
+
+	// カメラ用
 	const Vector3 CameraPos_ = {0.0f, 0.0f, -10.0f};
 	Vector3 rotate{};
 	Vector3 translate{};
@@ -43,13 +47,7 @@ private:
 	Matrix4x4 viewPortMatrix_;
 	Vector3 cameraTranslate_{0.0f, 1.9f, -6.49f};
 	Vector3 cameraRotate_{0.26f, 0.0f, 0.0f};
-	GRID Sphere_;
-	Sphere sphere0_;
-	Sphere sphere1_;
-	float distance_;
-	bool isCollision_;
-	float phi_;
+	// ここまで
 
 };
-
 

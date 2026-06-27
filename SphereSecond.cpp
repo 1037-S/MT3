@@ -22,6 +22,46 @@ bool SphereSecond::IsCollsion(const Sphere& s1, const Sphere& s2) {
 
 }
 
+void SphereSecond::DrawGrid(const Matrix4x4& viewProjectonMatrix, const Matrix4x4& viewportMatrix) {
+	const float kGridHalfWidth = 2.0f;                                      // Gridの半分の幅
+	const uint32_t kSubdivision = 10;                                       // Gridの分割数
+	const float kGridEvery = (kGridHalfWidth * 2.0f) / float(kSubdivision); // 1つ分の長さ
+	const uint32_t kCenterIndex = kSubdivision / 2;
+	// 奥から手前の線を順々に引いていく
+	for (uint32_t xIndex = 0; xIndex <= kSubdivision; ++xIndex) {
+		// 上に書かれているコードを使ってワールド座標系上の始点と終点を求める
+		float x = -kGridHalfWidth + (float(xIndex) * kGridEvery);
+		Vector3 startPos = {x, 0.0f, -kGridHalfWidth};
+		Vector3 endPos = {x, 0.0f, kGridHalfWidth};
+		// スクリーン座標系まで変換を掛ける
+		Vector3 dcStart = MM_.Transform(startPos, viewProjectonMatrix);
+		Vector3 screenStart = MM_.Transform(dcStart, viewportMatrix);
+
+		Vector3 dcEnd = MM_.Transform(endPos, viewProjectonMatrix);
+		Vector3 screenEnd = MM_.Transform(dcEnd, viewportMatrix);
+
+		// 変換した座標を使って表示する。色はうすい灰色(0xAAAAAAFF)、原点は黒ぐらいがおすすめだが、色は何でもいい
+		uint32_t color = (xIndex == kCenterIndex) ? BLACK : 0xAAAAAAFF;
+		Novice::DrawLine((int)screenStart.x, (int)screenStart.y, (int)screenEnd.x, (int)screenEnd.y, color);
+	}
+	// 左から右も同じように順々に引いていく
+	for (uint32_t zIndex = 0; zIndex <= kSubdivision; ++zIndex) {
+		// 奥から手前が左右に代わるだけである
+		float z = -kGridHalfWidth + (float(zIndex) * kGridEvery);
+		Vector3 startPos = {-kGridHalfWidth, 0.0f, z};
+		Vector3 endPos = {kGridHalfWidth, 0.0f, z};
+		// スクリーン座標系まで変換を掛ける
+		Vector3 dcStart = MM_.Transform(startPos, viewProjectonMatrix);
+		Vector3 screenStart = MM_.Transform(dcStart, viewportMatrix);
+
+		Vector3 dcEnd = MM_.Transform(endPos, viewProjectonMatrix);
+		Vector3 screenEnd = MM_.Transform(dcEnd, viewportMatrix);
+
+		// 変換した座標を使って表示する。色はうすい灰色(0xAAAAAAFF)、原点は黒ぐらいがおすすめだが、色は何でもいい
+		uint32_t color = (zIndex == kCenterIndex) ? BLACK : 0xAAAAAAFF;
+		Novice::DrawLine((int)screenStart.x, (int)screenStart.y, (int)screenEnd.x, (int)screenEnd.y, color);
+	}
+}
 // 球体
 void SphereSecond::DrawSphere(const Sphere& sphere, const Matrix4x4& viewProjectMatrix, const Matrix4x4& viewportMatrix, uint32_t color) {
 	const uint32_t kSubdivision = 10; // 球体の分割数
@@ -134,6 +174,7 @@ void SphereSecond::Update(char* keys) {
 }
 
 void SphereSecond::Draw() { 
+	SphereSecond::DrawGrid(viewProjectionMatrix_, viewPortMatrix_);
 	uint32_t color = isCollision_ ? RED : WHITE;
 	SphereSecond::DrawSphere(sphere0_, viewProjectionMatrix_, viewPortMatrix_, color);
 	SphereSecond::DrawSphere(sphere1_, viewProjectionMatrix_, viewPortMatrix_, WHITE);

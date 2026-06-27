@@ -104,41 +104,10 @@ void GRID::Initialize() {
 	
 }
 
-void GRID::Update(char* keys) {
+void GRID::Update() {
 
 
 #ifdef _DEBUG
-	float cameraSpeed = 0.05f;
-	if (keys[DIK_E]) {
-		cameraTranslate_.z += cameraSpeed;
-	}
-	if (keys[DIK_Q]) {
-		cameraTranslate_.z -= cameraSpeed;
-	}
-	if (keys[DIK_A]) {
-		cameraTranslate_.x += cameraSpeed;
-	}
-	if (keys[DIK_D]) {
-		cameraTranslate_.x -= cameraSpeed;
-	}
-	if (keys[DIK_W]) {
-		cameraTranslate_.y -= cameraSpeed;
-	}
-	if (keys[DIK_S]) {
-		cameraTranslate_.y += cameraSpeed;
-	}
-	if (keys[DIK_UP]) {
-		cameraRotate_.x += cameraSpeed / 5;
-	}
-	if (keys[DIK_DOWN]) {
-		cameraRotate_.x -= cameraSpeed / 5;
-	}
-	if (keys[DIK_LEFT]) {
-		cameraRotate_.y += cameraSpeed / 5;
-	}
-	if (keys[DIK_RIGHT]) {
-		cameraRotate_.y -= cameraSpeed / 5;
-	}
 	
 	//ImGui::Begin("Window");
 	//ImGui::DragFloat3("CameraTranslate", &cameraTranslate_.x, 0.01f);
@@ -158,7 +127,7 @@ void GRID::Update(char* keys) {
 	viewPortMatrix_ = RPV2_.MakeViewportMatrix(0, 0, float(KWindowWidth), float(KWindowHeight), 0.0f, 1.0f);
 }
 
-void GRID::Draw() {
-	GRID::DrawGrid(viewProjectionMatrix_,viewPortMatrix_);
+void GRID::Draw(const Matrix4x4& viewProjectionMatrix, const Matrix4x4& viewPortMatrix) {
+	GRID::DrawGrid(viewProjectionMatrix,viewPortMatrix);
 	//GRID::DrawSphere(sphere_,viewProjectionMatrix_,viewPortMatrix_,BLACK);
 }
